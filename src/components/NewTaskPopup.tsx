@@ -2,7 +2,7 @@ import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
 interface Task {
-  _id:string,
+  _id?:string,
   title: string;
   description: string;
   status: "pending" | "completed" | "failed";
