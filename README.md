@@ -6,7 +6,7 @@ Task Manager is a simple task management application built with React and a back
 ##### Backend Repository: https://github.com/gitxAnkit/task-management-api
 ##### Backend deployed link: https://task-management-api-h92p.onrender.com/api/v1
 
-##### Frontend live link: 
+##### Frontend live link: https://task-management-ui-nine.vercel.app/
 
 ## Features
 - Add new tasks with a title, description, status, and deadline
