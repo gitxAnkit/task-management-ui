@@ -2,10 +2,11 @@ import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
 interface Task {
+  _id:string,
   title: string;
   description: string;
   status: "pending" | "completed" | "failed";
-  date: string;
+  deadline: string;
 }
 
 interface NewTaskPopupProps {
@@ -19,17 +20,17 @@ const NewTaskPopup: React.FC<NewTaskPopupProps> = ({ onClose, onSubmit }) => {
   const [status, setStatus] = useState<"pending" | "completed" | "failed">(
     "pending"
   );
-  const [date, setDate] = useState<string>(
+  const [deadline, setDeadline] = useState<string>(
     new Date().toISOString().split("T")[0]
   ); // Default to today
 
   const handleSubmit = () => {
-    if (!title.trim() || !description.trim()) {
-      alert("Title and Description are required!");
+    if (!title.trim()) {
+      alert("Title is required!");
       return;
     }
 
-    const newTask: Task = { title, description, status, date };
+    const newTask: Task = { title, description, status, deadline };
     onSubmit(newTask);
     onClose();
   };
@@ -96,8 +97,8 @@ const NewTaskPopup: React.FC<NewTaskPopupProps> = ({ onClose, onSubmit }) => {
           <input
             type="date"
             className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={deadline}
+            onChange={(e) => setDeadline(e.target.value)}
           />
         </div>
 

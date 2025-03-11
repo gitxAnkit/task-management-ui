@@ -1,3 +1,14 @@
+// interface Task {
+//   _id: string;
+//   title: string;
+//   description: string;
+//   status: "pending" | "completed" | "failed";
+//   date: string;
+// }
+
+// interface AddNewProps{
+//  onSubmit:(task:Task)=>void; 
+// }
 const AddNewTask = () => {
   return (
     <div className="w-[300px] h-[250px] flex items-center justify-center
