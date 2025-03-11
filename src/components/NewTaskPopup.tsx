@@ -2,12 +2,19 @@ import { useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 
 interface Task {
-  _id?:string,
+  id?:string,
   title: string;
   description: string;
   status: "pending" | "completed" | "failed";
   deadline: string;
 }
+interface NewTask {
+  title: string;
+  description: string;
+  status: "pending" | "completed" | "failed";
+  deadline: string;
+}
+
 
 interface NewTaskPopupProps {
   onClose: () => void;
@@ -30,7 +37,7 @@ const NewTaskPopup: React.FC<NewTaskPopupProps> = ({ onClose, onSubmit }) => {
       return;
     }
 
-    const newTask: Task = { title, description, status, deadline };
+    const newTask: NewTask = { title, description, status, deadline };
     onSubmit(newTask);
     onClose();
   };

@@ -11,28 +11,36 @@ interface Task {
   status: "pending" | "completed" | "failed";
   deadline: string;
 }
+
+interface NewTask {
+  title: string;
+  description: string;
+  status: "pending" | "completed" | "failed";
+  deadline: string;
+}
+
 const Home = () => {
   const [showPopup, setShowPopup] = useState<boolean>(false);
-  const [tasks, setTasks] = useState<Task[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]); 
 
-  // Fetch tasks from API
+  // Fetch tasks from API (Runs only once)
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await api.get("/tasks");
+        const response = await api.get<{ tasks: Task[] }>("/tasks");
         setTasks(response.data.tasks);
       } catch (error) {
         console.error("Error fetching tasks:", error);
       }
     };
     fetchTasks();
-  }, [tasks]);
+  }, [tasks]); 
 
   // Handle new task addition
-  const handleNewTask = async (task: Task) => {
+  const handleNewTask = async (task: NewTask) => {
     try {
-      const response = await api.post("/tasks", task);
-      const newTask = response.data; 
+      const response = await api.post<Task>("/tasks", task);
+      const newTask = response.data;
 
       setTasks((prevTasks) => [...prevTasks, newTask]);
     } catch (error) {
