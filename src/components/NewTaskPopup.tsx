@@ -75,10 +75,10 @@ const NewTaskPopup: React.FC<NewTaskPopupProps> = ({ onClose, onSubmit }) => {
         </div>
 
         {/* Status Dropdown */}
-        <div className="mb-3">
+        <div className="mb-3 ">
           <label className="block font-semibold">Status:</label>
           <select
-            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
             value={status}
             onChange={(e) =>
               setStatus(e.target.value as "pending" | "completed" | "failed")
@@ -95,7 +95,7 @@ const NewTaskPopup: React.FC<NewTaskPopupProps> = ({ onClose, onSubmit }) => {
           <label className="block font-semibold">Deadline:</label>
           <input
             type="date"
-            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full border rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer"
             value={date}
             onChange={(e) => setDate(e.target.value)}
           />

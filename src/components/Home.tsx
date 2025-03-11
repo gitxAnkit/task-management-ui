@@ -10,7 +10,7 @@ interface Task {
   date: string;
 }
 const Home = () => {
-  const [showPopup, setShowPopup] = useState<boolean>(true);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
   const [tasks, setTasks] = useState<Task[]>([]);
 
   const handleNewTask = (task: Task) => {
@@ -23,7 +23,7 @@ const Home = () => {
       </h1>
 
       {/* Main section  */}
-      <div className="border border-black  rounded-xl px-6 py-3 h-[90%] ">
+      <div className="border border-black  rounded-xl px-6 py-3 h-[90%] shadow-lg">
         <div className="my-4 flex justify-between font-poppins text-3xl">
           <div className="">
             <span className="border-b-4 border-[#5ddd54]">Your</span>
@@ -37,31 +37,31 @@ const Home = () => {
 
         <div className="py-1 grid grid-rows-2 grid-cols-4 gap-8">
           <TaskCard
-            status="pending"
+            initialStatus="pending"
             title="intenship assignment"
             description="complete the task manager assignment for the internship"
             date="12/03/2025"
           />
           <TaskCard
-            status="pending"
+            initialStatus="pending"
             title="intenship assignment"
             description="complete the task manager assignment for the internship"
             date="12/03/2025"
           />
           <TaskCard
-            status="pending"
+            initialStatus="pending"
             title="intenship assignment"
             description="complete the task manager assignment for the internship"
             date="12/03/2025"
           />
           <TaskCard
-            status="pending"
+            initialStatus="pending"
             title="intenship assignment"
             description="complete the task manager assignment for the internship"
             date="12/03/2025"
           />
           <TaskCard
-            status="pending"
+            initialStatus="pending"
             title="intenship assignment"
             description="complete the task manager assignment for the internship"
             date="12/03/2025"
